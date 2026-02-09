@@ -32,3 +32,7 @@ O jogo permite iniciar uma partida, inserir e remover números, visualizar o tab
 O tabuleiro inicial possui números fixos que não podem ser alterados. O projeto foi desenvolvido exclusivamente para fins educacionais. Não possui interface gráfica (GUI), apenas interação textual
 
 - Projeto desenvolvido como parte do curso da Digital Innovation One (DIO) para prática e consolidação dos conhecimentos em Java.
+
+  ## Branches
+- `main`: versão original, executada pelo terminal.
+- `refatoração`: versão com interface gráfica (Swing).
