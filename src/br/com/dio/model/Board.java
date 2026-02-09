@@ -21,24 +21,13 @@ public class Board {
         return spaces;
     }
 
-    public GameStatusEnum getStatus() {
-        boolean hasAnyValue = spaces.stream()
-                .flatMap(List::stream)
-                .anyMatch(space -> nonNull(space.getActual()));
-
-        if (!hasAnyValue) {
-            return GameStatusEnum.NON_STARTED;
+    public GameStatusEnum getStatus(){
+        if (spaces.stream().flatMap(Collection::stream).noneMatch(s -> !s.isFixed() && nonNull(s.getActual()))){
+            return NON_STARTED;
         }
 
-        boolean hasEmpty = spaces.stream()
-                .flatMap(List::stream)
-                .anyMatch(space -> isNull(space.getActual()));
-
-        return hasEmpty
-                ? GameStatusEnum.INCOMPLETE
-                : GameStatusEnum.COMPLETE;
+        return spaces.stream().flatMap(Collection::stream).anyMatch(s -> isNull(s.getActual())) ? INCOMPLETE : COMPLETE;
     }
-
 
     public boolean hasErrors(){
         if(getStatus() == NON_STARTED){
